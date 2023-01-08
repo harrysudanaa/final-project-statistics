@@ -4,12 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Exports\DataTunggalExport;
 use Maatwebsite\Excel\Facades\Excel;
-use PhpOffice\PhpSpreadsheet\Style\Alignment;
 use App\Http\Controllers\Controller;
 use App\Imports\DataTunggalImport;
 use App\Models\DataTunggal;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class DataTunggalController extends Controller
 {
@@ -22,7 +20,6 @@ class DataTunggalController extends Controller
     public function import(Request $request)
     {
         $fileName = $request->file('file')->getClientOriginalName();
-        // dd($request->file('file')->getMimeType());
         $request->validate([
             'file' => 'required|mimes:xlsx'
         ]);
@@ -113,19 +110,11 @@ class DataTunggalController extends Controller
     {
         $data = $request->except('_token');
         $data_tunggal = DataTunggal::where('id', $id)->first();
-        // check in range
-        // Validator::extend('no_in_range', function ($attribute, $value, $parameters) {
-        //     return (($value < 0) && ($value > 100)) ? true : false;
-        // });
-        // $message = [
-        //     'score.no_in_range' => 'The score must be in range of 0 - 100',
-        // ];
         $request->validate([
             'score' => 'required|numeric'
         ]);
         $data_tunggal->update($data);
         return redirect('admin/data_tunggal')->with('toast_success', 'Data Updated Successfully!');
-        // dd($data);
     }
 
     /**
