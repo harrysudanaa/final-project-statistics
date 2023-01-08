@@ -22,24 +22,15 @@ class DataTunggalController extends Controller
     public function import(Request $request)
     {
         $fileName = $request->file('file')->getClientOriginalName();
-        $extFile = $request->file('file')->getClientOriginalExtension();
-        // dd($request->file('myFile'));
+        // dd($request->file('file')->getMimeType());
         $request->validate([
-            'file' => 'required|mimes:xlsx,csv'
+            'file' => 'required|mimes:xlsx'
         ]);
 
-        $path = $request->file('file')->storeAs(
-            'imports',
-            date('Y-m-d H:i:s') . $fileName . '.' . $extFile,
-            'public',
-        );
-        dd($path);
         if ($request->hasFile('file')) {
+            $request->file('file')->storeAs('imports', rand() . $fileName, 'public');
         }
-        Excel::import(new DataTunggalImport, $request->file('myFile'), null, [
-            \Maatwebsite\Excel\Excel::XLSX,
-            \Maatwebsite\Excel\Excel::CSV
-        ]);
+        (new DataTunggalImport)->import($request->file('file'), null, \Maatwebsite\Excel\Excel::XLSX);
 
         return redirect('/admin/data_tunggal')->with('toast_success', 'Import Successfully!');
     }
