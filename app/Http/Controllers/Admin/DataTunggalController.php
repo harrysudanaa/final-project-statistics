@@ -13,7 +13,6 @@ class DataTunggalController extends Controller
 {
     public function export()
     {
-
         return Excel::download(new DataTunggalExport, 'data_tunggal.xlsx');
     }
 
