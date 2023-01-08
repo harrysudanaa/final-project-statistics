@@ -34,13 +34,4 @@ class DeskripsiDataController extends Controller
         $std_dev = $variance / $n;
         return $std_dev;
     }
-    public function frequencyData()
-    {
-        $frequencies = DB::table('data_tunggal')
-            ->select('score', DB::raw('count(*) as frequency'))
-            ->groupBy('score')
-            ->get();
-
-        return $frequencies;
-    }
 }
