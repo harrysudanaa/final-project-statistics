@@ -16,7 +16,6 @@ class DeskripsiDataController extends Controller
             'min' => DataTunggal::min('score'),
             'max' => DataTunggal::max('score'),
             'std_dev' => $this->standardDeviation(),
-            'frequencies' => $this->frequencyData(),
         ]);
     }
     public function standardDeviation()
