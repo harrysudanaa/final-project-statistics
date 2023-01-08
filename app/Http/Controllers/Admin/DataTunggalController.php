@@ -61,13 +61,6 @@ class DataTunggalController extends Controller
     public function store(Request $request)
     {
         $data = $request->except('_token');
-        // // check in range
-        // Validator::extend('no_in_range', function ($attribute, $value, $parameters) {
-        //     return (($value < 0) && ($value > 100)) ? true : false;
-        // });
-        // $message = [
-        //     'score.no_in_range' => 'The score must be in range of 0 - 100',
-        // ];
         $request->validate([
             'score' => 'required|numeric'
         ]);
