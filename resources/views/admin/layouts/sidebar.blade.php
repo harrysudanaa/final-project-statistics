@@ -1,8 +1,8 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ route('admin.index') }}" class="brand-link text-center">
-      {{-- <img src="{{ asset('images/logo-ilkom.png') }}" alt="Ilkom Logo" class="brand-image" style="opacity: .8"> --}}
+    <a href="{{ route('admin.index') }}" class="brand-link">
+      <img src="{{ asset('images/logo-cs.png') }}" alt="Ilkom Logo" class="brand-image" style="opacity: .8">
       <span class="brand-text font-weight-light">ADMIN STATISTIK</span>
     </a>
 

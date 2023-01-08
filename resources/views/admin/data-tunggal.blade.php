@@ -35,7 +35,7 @@
             <div class="row mr-2">
               <div class="col-md-12">
                 {{-- Button Trigger --}}
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#importModal">Import Data</button>
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#importModal">Import XLSX</button>
 
                 {{-- Modal --}}
                 <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="Import Data" aria-hidden="true">

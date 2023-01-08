@@ -38,9 +38,3 @@
     </div>
   </div>
 @endsection
-
-{{-- @section('js')
-  <script>
-    $('#data_tunggal').DataTable();
-  </script>
-@endsection --}}
